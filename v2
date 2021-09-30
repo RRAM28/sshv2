@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
 # generate ssh key for github
+echo "== Generatin a new ssh key =="
 eval "$(ssh-agent -s)"
-email="admin@codeflakes.io"
-myPassPhrase="iloveruby"
 if [ ! -f ~/.ssh/id_rsa ]; then
-  ssh-keygen -t rsa -b 4096 -C "$email" -N "$myPassPhrase"
+  ssh-keygen -t rsa -b 4096 -C "admin@codeflakes.io" -N "iloveruby" -f ~/.ssh/id_rsa.pub
   ssh-add ~/.ssh/id_rsa
 fi
-echo "All dependencies for Shotengaai were installed"
+echo " Email set as admin@codeflakes.io & Passphrase set as iloveruby"
 echo "please copy the follow shh key on Github for CI Deployment"
-echo ""
+echo
 cat ~/.ssh/id_rsa.pub
+echo
+echo "Here is a guide to archive it https://docs.github.com/es/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
