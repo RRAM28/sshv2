@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # generate ssh key for github
-if [ ! -f ~/.ssh/id_rsa ]; then
+if [[ ! -f "$HOME/.ssh/id_rsa.pub.pub" ]]; then
   eval "$(ssh-agent -s)"
   echo "== Generatin a new ssh key =="
   ssh-keygen -t rsa -b 4096 -C "admin@codeflakes.io" -N "iloveruby" -f ~/.ssh/id_rsa.pub
