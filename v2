@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
 
 # generate ssh key for github
-eval "$(ssh-agent -s)"
 if [ ! -f ~/.ssh/id_rsa ]; then
+  eval "$(ssh-agent -s)"
   echo "== Generatin a new ssh key =="
   ssh-keygen -t rsa -b 4096 -C "admin@codeflakes.io" -N "iloveruby" -f ~/.ssh/id_rsa.pub
   ssh-add ~/.ssh/id_rsa
   echo "Email set as admin@codeflakes.io & Passphrase set as iloveruby"
 fi
-echo "=====> Please add the follow shh key on Github for CI Deployment <=====" | sed  -e :a -e "s/^.\{1,$(tput cols)\}$/ & /;ta" | tr -d '\n' | head -c $(tput cols)
+echo
+echo "===== Please add the follow shh key on Github for CI Deployment =====" | sed  -e :a -e "s/^.\{1,$(tput cols)\}$/ & /;ta" | tr -d '\n' | head -c $(tput cols)
 echo
 cat ~/.ssh/id_rsa.pub.pub
 echo
-echo "=====> Please add the follow shh key on Github for CI Deployment <=====" | sed  -e :a -e "s/^.\{1,$(tput cols)\}$/ & /;ta" | tr -d '\n' | head -c $(tput cols)
+echo "===== Please add the follow shh key on Github for CI Deployment =====" | sed  -e :a -e "s/^.\{1,$(tput cols)\}$/ & /;ta" | tr -d '\n' | head -c $(tput cols)
 echo
 echo "How to: https://docs.github.com/es/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
