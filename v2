@@ -4,7 +4,7 @@
 eval "$(ssh-agent -s)"
 email="admin@codeflakes.io"
 if [ ! -f ~/.ssh/id_rsa ]; then
-  ssh-keygen -t rsa -b 4096 -C "$email"
+  ssh-keygen -t rsa -b 4096 -C "$email" -N "$myPassPhrase"
   ssh-add ~/.ssh/id_rsa
 fi
 echo "All dependencies for Shotengaai were installed"
