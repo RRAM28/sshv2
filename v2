@@ -2,15 +2,18 @@
 
 # generate ssh key for github
 if [[ ! -f "$HOME/.ssh/id_rsa.pub.pub" ]]; then
-  eval "$(ssh-agent -s)"
-  echo "== Generatin a new ssh key =="
+  echo "****** Generatin a new ssh key ******"
   ssh-keygen -t rsa -b 4096 -C "admin@codeflakes.io" -N "iloveruby" -f ~/.ssh/id_rsa.pub
-  ssh-add ~/.ssh/id_rsa
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/id_rsa.pub
+  printf "iloveruby\n"
   echo "Email set as admin@codeflakes.io & Passphrase set as iloveruby"
 fi
 echo
 echo
 cat ~/.ssh/id_rsa.pub.pub
 echo
-echo "===== Copy the shh key from above and add it on Github for CI Deployment =====" | sed  -e :a -e "s/^.\{1,$(tput cols)\}$/ & /;ta" | tr -d '\n' | head -c $(tput cols)
+echo "****** Copy the shh key from above and add it on Github for CI Deployment ******" | sed  -e :a -e "s/^.\{1,$(tput cols)\}$/ & /;ta" | tr -d '\n' | head -c $(tput cols)
 echo "How to: https://docs.github.com/es/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
+echo
+echo "Server is ready for create or clone a Shotengai & You can now enter via shh shotengai@ip and set a new password"
