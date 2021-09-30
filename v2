@@ -3,11 +3,10 @@
 # generate ssh key for github
 if [[ ! -f "$HOME/.ssh/id_rsa.pub.pub" ]]; then
   echo "****** Generatin a new ssh key ******"
-  ssh-keygen -t rsa -b 4096 -C "admin@codeflakes.io" -N "iloveruby" -f ~/.ssh/id_rsa.pub
+  ssh-keygen -t rsa -b 4096 -C "admin@codeflakes.io" -f ~/.ssh/id_rsa.pub
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_rsa.pub
-  printf "iloveruby\n"
-  echo "Email set as admin@codeflakes.io & Passphrase set as iloveruby"
+  echo "Email set as admin@codeflakes.io"
 fi
 echo
 echo
