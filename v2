@@ -8,8 +8,10 @@ if [ ! -f ~/.ssh/id_rsa ]; then
   ssh-add ~/.ssh/id_rsa
   echo "Email set as admin@codeflakes.io & Passphrase set as iloveruby"
 fi
-echo "== Please add the follow shh key on Github for CI Deployment =="
+echo "=== Please add the follow shh key on Github for CI Deployment ==="
 echo
-cat ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_rsa.pub.pub
+echo
+echo "=== Please add the follow shh key on Github for CI Deployment ==="
 echo
 echo "How to: https://docs.github.com/es/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
