@@ -3,6 +3,7 @@
 # generate ssh key for github
 eval "$(ssh-agent -s)"
 email="admin@codeflakes.io"
+myPassPhrase="iloveruby"
 if [ ! -f ~/.ssh/id_rsa ]; then
   ssh-keygen -t rsa -b 4096 -C "$email" -N "$myPassPhrase"
   ssh-add ~/.ssh/id_rsa
