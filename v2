@@ -9,10 +9,9 @@ if [ ! -f ~/.ssh/id_rsa ]; then
   echo "Email set as admin@codeflakes.io & Passphrase set as iloveruby"
 fi
 echo
-echo "===== Please add the follow shh key on Github for CI Deployment =====" | sed  -e :a -e "s/^.\{1,$(tput cols)\}$/ & /;ta" | tr -d '\n' | head -c $(tput cols)
 echo
 cat ~/.ssh/id_rsa.pub.pub
 echo
-echo "===== Please add the follow shh key on Github for CI Deployment =====" | sed  -e :a -e "s/^.\{1,$(tput cols)\}$/ & /;ta" | tr -d '\n' | head -c $(tput cols)
+echo "===== Copy the shh key from above and add it on Github for CI Deployment =====" | sed  -e :a -e "s/^.\{1,$(tput cols)\}$/ & /;ta" | tr -d '\n' | head -c $(tput cols)
 echo
 echo "How to: https://docs.github.com/es/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
